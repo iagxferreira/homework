@@ -7,6 +7,8 @@ import swaggerUi from 'swagger-ui-express';
 import { connectDatabase } from './config/database';
 import { swaggerSpec } from './config/swagger';
 import authRoutes from './routes/auth';
+import campaignRoutes from './routes/campaigns';
+import voteRoutes from './routes/votes';
 
 dotenv.config();
 
@@ -25,6 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/campaigns', campaignRoutes);
+app.use('/api', voteRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });

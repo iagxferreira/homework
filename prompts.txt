@@ -4,3 +4,13 @@ work.
 ok, so firstly we should create a folder to use as client using nextjs and a folder to use as server, using expressjs, so, ill need you to start those projects, i will use yarn on both. i also want you to create a dockerfile on each folder and you should create a docker compose file to crate the mongodb server. those tree services should be able to connect between and also i want to have a signup and signin pages and endpoint, we could start using simple mvc architecture, i also want you to create a swagger and provide them on server, the server need to use .env files to run locally and on docker compose we should have those .env files. on frontend use shadcn and tailwind css, lets build it ?
 
 there is some erros on nextjs project using docker, could you check this?
+
+ok, now i want you to know that this project is some kind of voting system, so, i want you to change the homepage, there is some erros on tailwind variables that doesnt feel this appearence looks great, so, in order to fix it, i want you to change my landing to be more specific on this voting system, the next deal is you to change the way we call api to use react query, it could be neutral on design, but i need the buttons to have a good contrast, the same to my signin and signup pages
+
+there's still some errors on buttons, could you check what is doing bad on stylization on buttons ?
+
+ok, now lets improve the frontend, i want you to use react hook forms with zod
+
+ok, now lets dive into backend, there is some logic to be implemented, i want that the user have tree roles, candidate, customer and admin, and in order to make our voting system works, we should have endpoints to see campaigns for voting, one campaign should be create by and admin and should have candidates to be included, users could vote to the candidates on campaigns and we should be able to see information for campaigns, admins could create campaings and we should have and endpoint to see campaings and to vote for a candidate on campaign, we also should have some screens, for admins, we should manage campaigns, create, read and update, adding candidates to campaigns, users could see campaigns and vote for a candidate on a campaign and see the current state on campaign, there are some logics that guide us to have a campaign table on database, users tables, and votings for campaigns, the dashboard should have a sidebar guiding us to needed screens with permissions by roles
+
+ok, now lets make sure that all my provided prompts is on prompts.txt

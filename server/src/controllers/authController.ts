@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import User, { IUser } from '../models/User';
+import User, { IUser, UserRole } from '../models/User';
 
 const generateToken = (userId: string): string => {
   return jwt.sign({ userId }, process.env.JWT_SECRET || 'fallback-secret', {
@@ -33,6 +33,10 @@ const generateToken = (userId: string): string => {
  *                 minLength: 6
  *               name:
  *                 type: string
+ *               role:
+ *                 type: string
+ *                 enum: [admin, candidate, customer]
+ *                 description: User role (optional, defaults to customer)
  *     responses:
  *       201:
  *         description: User registered successfully
@@ -54,10 +58,15 @@ const generateToken = (userId: string): string => {
  */
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, name, role } = req.body;
 
     if (!email || !password || !name) {
       res.status(400).json({ message: 'All fields are required' });
+      return;
+    }
+
+    if (role && !Object.values(UserRole).includes(role)) {
+      res.status(400).json({ message: 'Invalid role specified' });
       return;
     }
 
@@ -67,7 +76,12 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const user = new User({ email, password, name });
+    const user = new User({ 
+      email, 
+      password, 
+      name, 
+      role: role || UserRole.CUSTOMER 
+    });
     await user.save();
 
     const token = generateToken(user._id.toString());

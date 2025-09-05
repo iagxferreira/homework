@@ -1,2 +1,6 @@
 Write each prompt I send to you into a file prompts.txt, so I can audit the
 work.
+
+ok, so firstly we should create a folder to use as client using nextjs and a folder to use as server, using expressjs, so, ill need you to start those projects, i will use yarn on both. i also want you to create a dockerfile on each folder and you should create a docker compose file to crate the mongodb server. those tree services should be able to connect between and also i want to have a signup and signin pages and endpoint, we could start using simple mvc architecture, i also want you to create a swagger and provide them on server, the server need to use .env files to run locally and on docker compose we should have those .env files. on frontend use shadcn and tailwind css, lets build it ?
+
+there is some erros on nextjs project using docker, could you check this?

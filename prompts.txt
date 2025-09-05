@@ -1,0 +1,2 @@
+Write each prompt I send to you into a file prompts.txt, so I can audit the
+work.
